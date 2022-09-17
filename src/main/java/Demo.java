@@ -7,23 +7,22 @@ import org.springframework.context.annotation.Configuration;
 import java.lang.reflect.Method;
 
 
-//@ComponentScan(basePackages = { "entity" })
 
+@Configuration
+@ComponentScan("entity")
 public class Demo {
     public static void main(String[] args) {
 //        ClassPathXmlApplicationContext applicationContext =
 //                new ClassPathXmlApplicationContext("applicationContext.xml");
 
         AnnotationConfigApplicationContext applicationContext =
-                new AnnotationConfigApplicationContext(Config.class);
+                new AnnotationConfigApplicationContext(Demo.class);
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         for (String name:beanDefinitionNames) {
             System.out.println(name);
         }
         System.out.println("==============================");
-        Config config=(Config) applicationContext.getBean(Config.class);
-        System.out.println(config.getClass().getName());
-        System.out.println(config.getCar()==config.getCar());
+
 
         Car car = (Car) applicationContext.getBean(Car.class);
         System.out.println(car.getClass().getName());

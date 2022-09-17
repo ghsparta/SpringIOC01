@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Demo</OriginalElement>
+  <nodes>
+    <node x="159.37701073732075" y="10.186858843541458">entity.Car</node>
+    <node x="0.0" y="151.58943646508533">Demo</node>
+    <node x="149.8481377992193" y="149.1620188692996">entity.Brake</node>
+    <node x="4.149074789166235" y="0.0">entity.Engine</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Demo" target="entity.Engine" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="entity.Car" target="entity.Engine" relationship="TO_ONE">
+      <point x="0.0" y="4.511447037325922" />
+      <point x="0.0" y="4.5114470373259365" />
+    </edge>
+    <edge source="entity.Car" target="entity.Brake" relationship="TO_ONE">
+      <point x="5.000302548699679" y="-0.0" />
+      <point x="5.000302548699679" y="-0.0" />
+    </edge>
+    <edge source="entity.Car" target="entity.Brake" relationship="DEPENDENCY">
+      <point x="-4.99969746960636" y="-0.05500193098218631" />
+      <point x="-4.99969746960636" y="-0.05500193098218631" />
+    </edge>
+    <edge source="Demo" target="entity.Brake" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="entity.Car" target="entity.Engine" relationship="DEPENDENCY">
+      <point x="0.3203616097673603" y="-4.488582007604094" />
+      <point x="0.3203616097673603" y="-4.4885820076041085" />
+    </edge>
+    <edge source="Demo" target="entity.Car" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Circular" zoom="1.0" showDependencies="true" x="120.0" y="90.0" />
+  <SelectedNodes>
+    <node>Demo</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

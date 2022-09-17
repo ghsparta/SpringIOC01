@@ -17,6 +17,14 @@
         <module>SpringIOCDemo03BeanAndFactoryBean</module>
         <module>SpringIOCDemo04BD</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.3.22</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>13</maven.compiler.source>
