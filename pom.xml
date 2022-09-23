@@ -16,6 +16,9 @@
         <module>SpringIOCDemo02CreationPattern</module>
         <module>SpringIOCDemo03BeanAndFactoryBean</module>
         <module>SpringIOCDemo04BD</module>
+        <module>SpringIOCDemo05Week02Assignment</module>
+        <module>SpringIOCDemo06DI</module>
+        <module>SpringIOCDemo07LifeCycle</module>
     </modules>
     <dependencies>
         <dependency>
@@ -23,6 +26,11 @@
             <artifactId>spring-context</artifactId>
             <version>5.3.22</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>2.7.3</version>
         </dependency>
     </dependencies>
 

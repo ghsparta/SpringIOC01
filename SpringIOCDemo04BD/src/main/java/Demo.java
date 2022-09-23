@@ -29,5 +29,11 @@ public class Demo {
 
         applicationContext.getBeanFactory().registerSingleton("sman",new Person("superman",100));
         System.out.println(applicationContext.getBean("sman"));
+
+
+        System.out.println("======================");
+        for (String beanDefinitionName : applicationContext.getBeanDefinitionNames()) {
+            System.out.println(beanDefinitionName);
+        }
     }
 }

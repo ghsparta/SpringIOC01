@@ -5,5 +5,9 @@
 /SpringIOCDemo02CreationPattern/target/
 /SpringIOCDemo03BeanAndFactoryBean/target/
 /SpringIOCDemo04BD/target/
+/SpringIOCDemo05Week02Assignment/target/
+/SpringIOCDemo06DI/target/
+/SpringIOCDemo07LifeCycle/target/
 /target/
 /.idea/
+*.iml
