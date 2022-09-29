@@ -19,6 +19,7 @@
         <module>SpringIOCDemo05Week02Assignment</module>
         <module>SpringIOCDemo06DI</module>
         <module>SpringIOCDemo07LifeCycle</module>
+        <module>SpringAOPDemo01</module>
     </modules>
     <dependencies>
         <dependency>
