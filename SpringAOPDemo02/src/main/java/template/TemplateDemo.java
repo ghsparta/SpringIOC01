@@ -8,7 +8,10 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TemplateDemo extends JdbcDaoSupport {
     static JdbcTemplate jdbcTemplate=new JdbcTemplate(new DriverManagerDataSource(
@@ -21,6 +24,19 @@ public class TemplateDemo extends JdbcDaoSupport {
         for (Person person : query) {
             System.out.println(person);
         }
+
+        query.stream().map(p->p.getName()).forEach(System.out::println);
+        System.out.println("============================");
+        List<Person> collect =
+                query.stream().filter(p -> p.getAge() > 20).collect(Collectors.toList());
+        collect.forEach(System.out::println);
+        System.out.println("============================");
+        query.stream().flatMap(person -> {
+
+            Stream<String> s2 = Arrays.stream(new String[]{String.valueOf(person.getAge()), String.valueOf(person.getId()), person.getName()});
+            return s2;
+        }).forEach(System.out::println);
+
 
     }
 }
