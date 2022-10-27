@@ -2,8 +2,9 @@ package com.demo.domain;
 
 public class Person {
     private Integer id;
-    private String name;
+    private String pname;
     private Integer age;
+    private Address address;
 
     public Integer getId() {
         return id;
@@ -13,12 +14,12 @@ public class Person {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getPname() {
+        return pname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPname(String pname) {
+        this.pname = pname;
     }
 
     public Integer getAge() {
@@ -29,12 +30,28 @@ public class Person {
         this.age = age;
     }
 
+
+    public Person(Integer id) {
+        this.id = id;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", pname='" + pname + '\'' +
                 ", age=" + age +
+                ", address=" + address +
                 '}';
     }
+
+
 }
