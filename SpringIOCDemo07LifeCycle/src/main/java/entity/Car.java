@@ -5,6 +5,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +14,7 @@ import javax.annotation.PreDestroy;
 
 @Component
 //@Scope
-public class Car implements BeanNameAware, BeanFactoryAware {
+public class Car implements BeanNameAware, BeanFactoryAware, InitializingBean {
     String brand;
     String beanName;
     BeanFactory beanFactory;
@@ -50,5 +51,10 @@ public class Car implements BeanNameAware, BeanFactoryAware {
     @PreDestroy
     public void g(){
         System.out.println("------------PreDestroy-----------------");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("------------afterPropertiesSet-----------------");
     }
 }

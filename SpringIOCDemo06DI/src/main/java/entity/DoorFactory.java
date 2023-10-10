@@ -33,6 +33,9 @@ class MyCondition implements Condition{
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
 
         //context.getBeanFactory().
+        System.out.println("=======here in my condition=======");
+        System.out.println(context.getBeanFactory().getBeanDefinition("car"));
+        System.out.println("=======here in my condition ends=======");
 
 
 

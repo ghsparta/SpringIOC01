@@ -14,19 +14,19 @@ public class MainClass {
                 new AnnotationConfigApplicationContext(MainClass.class);
         System.out.println(applicationContext.getBeanDefinition("car"));
         Car car = (Car) applicationContext.getBean("car");
-        System.out.println("==============");
+        System.out.println("======doorList========");
         for(Door door:car.doorList){
             System.out.println(door);
         }
-        System.out.println("==============");
+        System.out.println("======doorSet========");
         for(Door door:car.doorSet){
             System.out.println(door);
         }
-        System.out.println("==============");
+        System.out.println("======doorArray========");
         for(Door door:car.doorArray){
             System.out.println(door);
         }
-        System.out.println("==============");
+        System.out.println("=======doorMap=======");
         for(Map.Entry<String, Door> entry:car.doorMap.entrySet()){
             System.out.println(entry.getKey()+":"+entry.getValue());
         }
