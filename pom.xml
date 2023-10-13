@@ -23,6 +23,7 @@
         <module>SpringAOPDemo02</module>
         <module>SpringJDBCTemplateDemo</module>
         <module>MybatisDemo01</module>
+        <module>SpringIOCDemo08LifeCycleAssignment</module>
     </modules>
     <dependencies>
         <dependency>

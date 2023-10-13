@@ -10,7 +10,7 @@ public class LenovoComputer extends Computer{
 
 
 
-    @Autowired
+    //@Autowired
     public void setDisplayer(Displayer dellDisplayerFactoryBean){
         this.displayer=dellDisplayerFactoryBean;
 //        System.out.println("");
@@ -22,7 +22,10 @@ public class LenovoComputer extends Computer{
     }
 
     public LenovoComputer(Displayer dellDisplayerFactoryBean, Printer hpPrinter) {
-        this.displayer = dellDisplayerFactoryBean;
-        this.printer = hpPrinter;
+        super(dellDisplayerFactoryBean, hpPrinter);
+//        this.displayer = dellDisplayerFactoryBean;
+//        this.printer = hpPrinter;
     }
+
+
 }

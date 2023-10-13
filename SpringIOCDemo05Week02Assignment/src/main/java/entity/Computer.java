@@ -17,4 +17,12 @@ public class Computer {
                 ", printer=" + printer +
                 '}';
     }
+
+    public Computer(Displayer displayer, Printer printer) {
+        this.displayer = displayer;
+        this.printer = printer;
+    }
+
+    public Computer() {
+    }
 }

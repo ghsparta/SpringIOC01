@@ -13,7 +13,8 @@ import java.util.Set;
 @Component
 public class Car {
 
-    @Value("Audi")
+//    @Value("Audi")
+    @Value("${brand}")
     public String brand;
 
 
