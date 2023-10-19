@@ -17,7 +17,7 @@ public class Person {
      *
      */
     int pid;
-    @Value("zhangsan")
+//    @Value("zhangsan")
     String pname;
 
 
@@ -29,7 +29,7 @@ public class Person {
         this.address = address;
     }
 
-    @Autowired
+//    @Autowired
     public void setPname(@Value("lisi") String pname) {
         System.out.println("before setting======="+this.pname);
         this.pname = pname;

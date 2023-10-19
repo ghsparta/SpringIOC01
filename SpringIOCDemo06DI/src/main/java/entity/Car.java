@@ -17,7 +17,7 @@ public class Car {
     @Value("${brand}")
     public String brand;
 
-
+    @Value("123")
     public int price;
 
     @Autowired
