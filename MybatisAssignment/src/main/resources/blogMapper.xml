@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.BlogMapper">
+
+    <select id="selectBlogDetails" resultMap="detailedBlogResultMapAll" resultType="Blog">
+        select B.blog_id         as blog_id,
+               B.blog_title      as blog_title,
+               B.blog_author_id  as blog_author_id,
+               B.state           as state,
+               P.post_id         as post_id,
+               P.post_author_id  as post_author_id,
+               P.post_created_on as post_created_on,
+               P.post_section    as post_section,
+               P.post_subject    as post_subject,
+               P.draft           as post_draft,
+               P.post_body       as post_body,
+               C.comment_id      as comment_id,
+               C.comment_name    as comment_name,
+               C.comment_text    as comment_text,
+               T.tag_id          as tag_id,
+               T.tag_name        as tag_name
+        from blog B
+                 left outer join post P on B.blog_id = P.post_blog_id
+                 left outer join comment C on P.post_id = C.comment_post_id
+                 left outer join post_tag PT on PT.post_id = P.post_id
+                 left outer join tag T on PT.tag_id = T.tag_id
+        where B.blog_id = #{id}
+    </select>
+    <resultMap id="detailedBlogResultMapAll" type="Blog">
+        <id property="id" column="blog_id"/>
+        <result property="title" column="blog_title"/>
+        <result property="state" column="state" jdbcType="INTEGER" javaType="State"
+                typeHandler="com.pojo.StateHandler"/><!--org.apache.ibatis.type.EnumOrdinalTypeHandler-->
+        <association property="author" javaType="Author" column="blog_author_id"
+                     select="com.mapper.BlogMapper.findAuthorById" fetchType="eager"/>
+        <collection property="posts" ofType="Post" javaType="List">
+            <id property="id" column="post_id"/>
+            <result property="blog_id" column="post_blog_id"/>
+            <result property="subject" column="post_subject"/>
+            <result property="section" column="post_section"/>
+            <result property="body" column="post_body"/>
+            <result property="created_on" column="post_created_on"/>
+<!--            <association property="author" javaType="Author" column="post_author_id"-->
+<!--                         select="com.mapper.BlogMapper.findAuthorById"/>-->
+            <collection property="comments" ofType="Comment">
+                <id column="comment_id" property="id"/>
+                <result column="comment_post_id" property="post_id"/>
+                <result column="comment_name" property="name"/>
+                <result column="comment_text" property="comment"/>
+            </collection>
+            <collection property="tags" ofType="Tag" javaType="List">
+                <id column="tag_id" property="id"/>
+                <result column="tag_name" property="name"/>
+            </collection>
+            <discriminator javaType="int" column="post_draft">
+                <case value="0" resultType="com.pojo.RegularPost"/>
+                <case value="1" resultType="com.pojo.DraftPost"/>
+            </discriminator>
+        </collection>
+    </resultMap>
+    <select id="findAuthorById" resultType="Author">
+        select author_id                as "id",
+               author_username          as "username",
+               author_password          as "password",
+               author_email             as "email",
+               author_bio               as "bio",
+               author_favourite_section as "favouriteSection"
+        from Author
+        where author_id = #{id}
+    </select>
+
+
+    <select id="selectBlogById" resultMap="detailedBlogResultMap">
+        SELECT *
+        FROM BLOG
+        where blog_id = #{id}
+    </select>
+    <resultMap id="detailedBlogResultMap" type="Blog">
+        <id property="id" column="blog_id"/>
+        <result property="title" column="blog_title"/>
+        <result property="state" column="state" jdbcType="INTEGER" javaType="State"
+                typeHandler="com.pojo.StateHandler"/><!--org.apache.ibatis.type.EnumOrdinalTypeHandler-->
+        <association property="author" javaType="Author" column="blog_author_id"
+                     select="com.mapper.BlogMapper.findAuthorById" fetchType="lazy"/>
+        <collection property="posts" ofType="Post" javaType="List" select="findPostsByBlogID" fetchType="lazy"
+                    column="blog_id"/>
+    </resultMap>
+    <select id="findPostsByBlogID" resultMap="blogPostResult">
+        select *
+        from post
+        where post_blog_id = #{id}
+    </select>
+    <resultMap id="blogPostResult" type="Post">
+        <id property="id" column="post_id"/>
+        <result property="blog_id" column="post_blog_id"/>
+        <result property="subject" column="post_subject"/>
+        <result property="section" column="post_section"/>
+        <result property="body" column="post_body"/>
+        <result property="created_on" column="post_created_on"/>
+        <collection property="comments" column="post_id" select="findCommentsByPostID" ofType="Comment"
+                    fetchType="lazy"/>
+        <collection property="tags" column="post_id" select="findTagsByPostID" ofType="Tag" fetchType="lazy"/>
+        <discriminator javaType="int" column="draft">
+            <case value="0" resultMap="regularPostResult"/>
+            <case value="1" resultMap="draftPostResult"/>
+        </discriminator>
+    </resultMap>
+    <select id="findCommentsByPostID" resultMap="blogCommentResult">
+        select comment_id      as "id",
+               comment_post_id as "post_id",
+               comment_name    as "name",
+               comment_text    as "comment"
+        from comment
+        where comment_post_id = #{id}
+    </select>
+    <resultMap id="blogCommentResult" type="Comment">
+    </resultMap>
+    <select id="findTagsByPostID" resultMap="blogTagResult">
+        select tag.tag_id   as "id",
+               tag.tag_name as "name"
+        from post,
+             tag,
+             post_tag
+        where post.post_id = post_tag.post_id
+          and post_tag.tag_id = tag.tag_id
+          and post.post_id = #{id}
+    </select>
+    <resultMap id="blogTagResult" type="Tag">
+    </resultMap>
+
+
+
+
+
+
+</mapper>

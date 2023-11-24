@@ -4,6 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+<!--    <parent>-->
+<!--        <groupId>org.springframework.boot</groupId>-->
+<!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+<!--        <version>2.7.17</version>-->
+<!--    </parent>-->
     <groupId>org.example</groupId>
     <artifactId>SpringIOC01</artifactId>
     <packaging>pom</packaging>
@@ -24,20 +29,10 @@
         <module>SpringJDBCTemplateDemo</module>
         <module>MybatisDemo01</module>
         <module>SpringIOCDemo08LifeCycleAssignment</module>
+        <module>SpringMVCDemo</module>
+        <module>MybatisAssignment</module>
     </modules>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.3.22</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <version>2.7.3</version>
-        </dependency>
-    </dependencies>
+
 
     <properties>
         <maven.compiler.source>13</maven.compiler.source>

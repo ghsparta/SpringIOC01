@@ -4,12 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.demo.PersonMapper">
 
-    <resultMap id="personmapping" type="com.demo.domain.Person">
-        <id property="id" column="id"/>
-        <result property="pname" column="name"/>
-        <result property="age" column="age"/>
-    </resultMap>
 
+    <resultMap id="personmapping" type="com.demo.domain.Person">
+        <id column="id" property="id"/>
+        <result column="name" property="pname"/>
+
+
+    </resultMap>
+<!--selectPerson(2)-->
     <select id="selectPerson"  resultMap="personmapping">
         select * from person where id = #{abc}
     </select>
@@ -20,7 +22,7 @@
         select * from person where id = #{id} and name = #{name}
     </select>
     <select id="selectPersonByInstance" resultType="com.demo.domain.Person">
-        select * from person where id = #{id}
+        select * from person where id = #{id} and name=#{name} and age=#{age}"
     </select>
     <select id="selectPersonByMap" resultType="com.demo.domain.Person">
         select * from person where id = #{id} and name = #{name}
@@ -46,9 +48,10 @@
     <select id="selectPersonByIdWithDetails" resultMap="persondetailmap" >
         select *
         from person, address
-        where person.id=#{id} and person.id=address.aid
+        where person.id=#{id} and person.id=address.pid
 
     </select>
+
 
 
 </mapper>

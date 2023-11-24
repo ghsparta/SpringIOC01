@@ -10,7 +10,9 @@ import java.util.Map;
 public interface PersonMapper {
     Person selectPerson(int id);
     Person selectPersonByName(String name);
-    Person selectPersonByIdAndName(@Param("id") int id,@Param("name") String name);//arg0 arg1 param1 param2
+    Person selectPersonByIdAndName(@Param("id") int id,@Param("name")String name);
+    //[arg1, arg0, param1, param2]
+    //[name, id, param1, param2]
 
     Person selectPersonByInstance(Person p);
     Person selectPersonByMap(Map<String, Object> map);

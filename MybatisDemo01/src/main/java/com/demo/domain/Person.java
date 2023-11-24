@@ -14,13 +14,13 @@ public class Person {
         this.id = id;
     }
 
-    public String getPname() {
-        return pname;
-    }
-
-    public void setPname(String pname) {
-        this.pname = pname;
-    }
+//    public String getPname() {
+//        return pname;
+//    }
+//
+//    public void setPname(String pname) {
+//        this.pname = pname;
+//    }
 
     public Integer getAge() {
         return age;

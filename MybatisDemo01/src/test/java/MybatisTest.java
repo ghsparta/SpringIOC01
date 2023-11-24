@@ -38,8 +38,10 @@ public class MybatisTest {
         //try-with-resource
         try (SqlSession session = sqlSessionFactory.openSession()) {
             PersonMapper mapper = session.getMapper(PersonMapper.class);
-//            System.out.println(mapper.getClass().getName());
+            System.out.println(mapper.getClass().getName());
             Person person = mapper.selectPerson(1);
+            System.out.println(person);
+            person = mapper.selectPerson(1);
             System.out.println(person);
         }
     }
