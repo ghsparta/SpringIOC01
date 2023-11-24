@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.pojo.Blog</OriginalElement>
+  <nodes>
+    <node x="876.5305576298239" y="308.7762817327832">com.pojo.RegularPost</node>
+    <node x="415.0572872962163" y="908.775885693866">com.pojo.Author</node>
+    <node x="0.0" y="608.5772966148074">com.pojo.Blog</node>
+    <node x="633.1101441955047" y="15.68683760570525">com.pojo.Comment</node>
+    <node x="446.6645785645545" y="0.0">com.pojo.Tag</node>
+    <node x="780.175893061173" y="197.60742066529934">com.pojo.DraftPost</node>
+    <node x="478.7626701612902" y="256.7656817743644">com.pojo.Post</node>
+    <node x="435.87624692595034" y="158.91503540191587">com.pojo.Post_Tag</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.pojo.Blog" target="com.pojo.Author" relationship="DEPENDENCY">
+      <point x="5.6843418860808015E-14" y="-6.160476237798903" />
+      <point x="-1.4210854715202004E-14" y="-6.160476237798946" />
+    </edge>
+    <edge source="com.pojo.Post" target="com.pojo.Tag" relationship="DEPENDENCY">
+      <point x="-5.120711523303754" y="-0.0" />
+      <point x="-5.1207115233037115" y="-0.0" />
+    </edge>
+    <edge source="com.pojo.Post" target="com.pojo.Comment" relationship="DEPENDENCY">
+      <point x="4.65615135164748" y="1.822156576848215" />
+      <point x="4.656151351647509" y="1.822156576848215" />
+    </edge>
+    <edge source="com.pojo.Blog" target="com.pojo.Post" relationship="TO_MANY">
+      <point x="0.0" y="-5.773502691896253" />
+      <point x="0.0" y="-5.773502691896283" />
+    </edge>
+    <edge source="com.pojo.Post" target="com.pojo.Author" relationship="DEPENDENCY">
+      <point x="-4.96042222717719" y="-0.6278625073425133" />
+      <point x="-4.96042222717719" y="-0.6278625073425133" />
+    </edge>
+    <edge source="com.pojo.RegularPost" target="com.pojo.Post" relationship="GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="com.pojo.DraftPost" target="com.pojo.Post" relationship="GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="com.pojo.Post" target="com.pojo.Tag" relationship="TO_MANY">
+      <point x="4.882134032785899" y="-1.0792438491433245" />
+      <point x="4.882134032785899" y="-1.0792438491433813" />
+    </edge>
+    <edge source="com.pojo.Blog" target="com.pojo.Post" relationship="DEPENDENCY">
+      <point x="2.5" y="4.3301270189221945" />
+      <point x="2.5" y="4.330127018922212" />
+    </edge>
+    <edge source="com.pojo.Post" target="com.pojo.Comment" relationship="TO_MANY">
+      <point x="-5.369241270723336" y="-0.0" />
+      <point x="-5.3692412707233075" y="-0.0" />
+    </edge>
+    <edge source="com.pojo.Post" target="com.pojo.Author" relationship="TO_ONE">
+      <point x="5.03989355241373" y="-0.0" />
+      <point x="5.039893552413702" y="-0.0" />
+    </edge>
+    <edge source="com.pojo.Blog" target="com.pojo.Author" relationship="TO_ONE">
+      <point x="-2.9208900361378483" y="4.0581278191785035" />
+      <point x="-2.9208900361378767" y="4.05812781917848" />
+    </edge>
+  </edges>
+  <settings layout="Circular" zoom="0.8746812386156648" showDependencies="true" x="706.0499867659473" y="350.70283215326947" />
+  <SelectedNodes>
+    <node>com.pojo.Post_Tag</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

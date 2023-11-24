@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//MyBatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!--开启延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true" />
+        <setting name="aggressiveLazyLoading" value="false" />
+        <setting name="logImpl" value="LOG4J" />
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="Blog" type="com.pojo.Blog" />
+        <typeAlias alias="Author" type="com.pojo.Author" />
+        <typeAlias alias="State" type="com.pojo.State" />
+        <typeAlias alias="Post" type="com.pojo.Post" />
+        <typeAlias alias="Tag" type="com.pojo.Tag" />
+        <typeAlias alias="Comment" type="com.pojo.Comment" />
+        <typeAlias alias="DraftPost" type="com.pojo.DraftPost" />
+        <typeAlias alias="RegularPost" type="com.pojo.RegularPost" />
+    </typeAliases>
+
+    <typeHandlers>
+        <typeHandler handler="com.pojo.StateHandler" />
+
+    </typeHandlers>
+
+    <environments default="mysql_test">
+        <environment id="mysql_test">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!--设置驱动类的全类名-->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <!--设置连接数据库的连接地址-->
+                <property name="url" value="jdbc:mysql://localhost:3306/homework?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;allowPublicKeyRetrieval=true"/>
+                <!--设置连接数据库的用户名-->
+                <property name="username" value="root"/>
+                <!--设置连接数据库的密码-->
+                <property name="password" value=""/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--引入映射文件-->
+    <mappers>
+        <mapper resource="blogMapper.xml" />
+    </mappers>
+</configuration>
